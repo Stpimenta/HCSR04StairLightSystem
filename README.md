@@ -148,7 +148,7 @@ Salva a configuração atual na memória flash do ESP32.
 curl -X GET "http://<ESP32_IP>/getSaveConfig"
 ```
 
-## 3. GET `/getLoadConfig` - Carregar Configuração Anterior
+## 8. GET `/getLoadConfig` - Carregar Configuração Anterior
 
 Carrega a configuração anterior da memória flash do ESP32.
 
