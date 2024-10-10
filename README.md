@@ -1,3 +1,30 @@
+# Documentação Básica - `Funcionamento`
+
+Este sistema é composto por duas **tasks** sincronizadas usando **mutex**:
+
+1. **Task de Sensores**: Responsável pela leitura e gerenciamento dos dados dos sensores de distância.
+2. **Task de Fita**: Gerencia a faixa de LEDs (WS2812), manipulando as cores e efeitos conforme as leituras dos sensores.
+
+### Objetos e Manipulação
+
+- **Objeto Color**: Utilizado para manejar as cores dos LEDs, permitindo uma fácil modificação e aplicação de diferentes padrões de iluminação.
+
+### Estrutura de Dados
+
+A base do funcionamento do sistema é composta por **ponteiros**, que permitem a manipulação eficiente dos objetos por todo o programa. Essa abordagem facilita o acesso e a modificação de dados, promovendo uma gestão mais dinâmica e flexível dos recursos.
+
+### Problemas de Conectividade
+
+A fita de LEDs WS2812 apresenta problemas de funcionamento quando o módulo Wi-Fi está ativado. Para mitigar isso, foi implementada a opção de **desligar o Wi-Fi** usando um botão físico, garantindo um funcionamento estável do sistema.
+
+### Persistência de Dados
+
+As configurações são salvas utilizando **NVS** (Non-Volatile Storage), garantindo que as configurações do sistema sejam mantidas mesmo em caso de desligamento ou reset. Isso assegura que o sistema retorne ao seu estado anterior após uma interrupção de energia.
+
+
+
+
+
 # Documentação Básica - `service_http_server_sensor_distance`
 
 Esta documentação descreve os métodos HTTP disponíveis na classe `service_http_server_sensor_distance`, responsável por iniciar um servidor HTTP para gerenciar sensores de distância através de requisições **GET** e **PUT**.
@@ -156,3 +183,5 @@ Carrega a configuração anterior da memória flash do ESP32.
 ```bash
 curl -X GET "http://<ESP32_IP>/getLoadConfig"
 ```
+
+
