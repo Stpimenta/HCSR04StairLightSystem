@@ -33,7 +33,7 @@ Este endpoint fornece as distancias.
 
 #### Exemplo de uso:
 
-
+```bash
 curl -N http://<ESP32_IP>/getDistance
 
 resposta esperada
@@ -45,6 +45,7 @@ resposta esperada
 		}]
 }
 
+```
 
 
 
@@ -54,7 +55,7 @@ Retorna uma lista em formato JSON com as informações dos sensores, incluindo c
 
 #### Exemplo de uso:
 
-
+```bash
 curl http://<ESP32_IP>/sensor
 
 
@@ -76,7 +77,7 @@ Resposta esperada (JSON):
         }
     ]
 }
-
+```
 
 ### 3. **PUT `/update_sensor`** - Atualizar Distância dos Sensores
 
@@ -91,9 +92,9 @@ Este endpoint permite atualizar as distâncias mínimas e máximas de um sensor 
 
 #### Exemplo de uso:
 
-
+```bash
 curl -X PUT "http://<ESP32_IP>/update_sensor?sensor=0&stage=1&min_distance=15&max_distance=95"
-
+```
 
 
 ### 4. **PUT `/update_rstrip`** - Atualizar Faixa de LEDs
@@ -109,9 +110,9 @@ Atualiza o intervalo de LEDs associados a um sensor específico.
 
 #### Exemplo de uso:
 
-
+```bash
 curl -X PUT "http://<ESP32_IP>/update_rstrip?sensor=1&stage=2&start_led=5&end_led=10"
-
+```
 
 ### 5. **PUT `/update_color_strip`** - Atualizar Cores do Strip de LEDs
 
@@ -124,9 +125,9 @@ Permite ajustar a cor dos LEDs RGB conectados ao sensor.
 - `blue`: Intensidade da cor azul (0-255).
 
 #### Exemplo de uso:
-
+```bash
 curl -X PUT "http://<ESP32_IP>/update_CStrip?red=255&green=100&blue=150"
-
+```
 
 ## 6. GET `/getPage` - Página HTML de Configuração
 
@@ -134,23 +135,24 @@ Retorna a página HTML para configuração do sistema.
 
 ### Exemplo de uso:
 
-
+```bash
 curl -X GET "http://<ESP32_IP>/getPage"
+```
 
 ## 7. GET `/getSaveConfig` - Salvar Configuração Atual
 
 Salva a configuração atual na memória flash do ESP32.
 
 ### Exemplo de uso:
-
-
+```bash
 curl -X GET "http://<ESP32_IP>/getSaveConfig"
+```
 
 ## 3. GET `/getLoadConfig` - Carregar Configuração Anterior
 
 Carrega a configuração anterior da memória flash do ESP32.
 
 ### Exemplo de uso:
-
-
+```bash
 curl -X GET "http://<ESP32_IP>/getLoadConfig"
+```
