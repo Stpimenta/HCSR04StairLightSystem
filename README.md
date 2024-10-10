@@ -14,24 +14,39 @@ A estrutura `reqData` armazena os dados dos sensores e LEDs passados para o serv
 
 O método `start_webserver()` é responsável por iniciar o servidor e registrar os seguintes endpoints:
 
-- `/sse`: Envia dados dos sensores via SSE.
+- `/getDistance`: pega as distançias sensores.
 - `/sensor`: Retorna as informações dos sensores.
 - `/update_sensor`: Atualiza as distâncias dos sensores.
 - `/update_rstrip`: Atualiza a faixa de LEDs associada aos sensores.
-- `/update_color_strip`: Atualiza as cores dos LEDs RGB.
+- `/update_CStrip`: Atualiza as cores dos LEDs RGB.
+- `/getPage`: pagina html de configuração.
+- `/getSaveConfig`: salva a config atual na memoria flash.
+- `/getLoadConfig`: sobe a config anterior
 
 ---
 
 ## Métodos HTTP e Como Usá-los com `cURL`
 
-### 1. **GET `/sse`** - Server-Sent Events (SSE)
+### 1. **GET `/getDistance`** - Server-Sent Events (SSE)
 
-Este endpoint mantém uma conexão aberta para enviar dados continuamente dos sensores de distância.
+Este endpoint fornece as distancias.
 
 #### Exemplo de uso:
 
 ```bash
-curl -N http://<ESP32_IP>/sse
+curl -N http://<ESP32_IP>/getDistance
+
+resposta esperada
+
+{
+	"sensors":	[{
+			"sensor":	0,
+			"distance":	177
+		}]
+}
+
+
+
 
 ### 2. **GET `/sensor`** - Obtenção dos Sensores
 
@@ -111,4 +126,33 @@ Permite ajustar a cor dos LEDs RGB conectados ao sensor.
 #### Exemplo de uso:
 
 ```bash
-curl -X PUT "http://<ESP32_IP>/update_color_strip?red=255&green=100&blue=150"
+curl -X PUT "http://<ESP32_IP>/update_CStrip?red=255&green=100&blue=150"
+
+
+
+## 6. GET `/getPage` - Página HTML de Configuração
+
+Retorna a página HTML para configuração do sistema.
+
+### Exemplo de uso:
+
+```bash
+curl -X GET "http://<ESP32_IP>/getPage"
+
+## 7. GET `/getSaveConfig` - Salvar Configuração Atual
+
+Salva a configuração atual na memória flash do ESP32.
+
+### Exemplo de uso:
+
+```bash
+curl -X GET "http://<ESP32_IP>/getSaveConfig"
+
+## 3. GET `/getLoadConfig` - Carregar Configuração Anterior
+
+Carrega a configuração anterior da memória flash do ESP32.
+
+### Exemplo de uso:
+
+```bash
+curl -X GET "http://<ESP32_IP>/getLoadConfig"
