@@ -1,0 +1,10 @@
+// env.h
+#ifndef ENV_H
+#define ENV_H
+
+// WiFi configuration
+const char* ssid = "@Pimenta#";
+const char* pass = "@0803197815#";
+const char* device = "esp-escada";
+
+#endif // ENV_H
