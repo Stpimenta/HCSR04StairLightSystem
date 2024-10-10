@@ -1,6 +1,6 @@
 # Documentação Básica - `service_http_server_sensor_distance`
 
-Esta documentação descreve os métodos HTTP disponíveis na classe `service_http_server_sensor_distance`, responsável por iniciar um servidor HTTP para gerenciar sensores de distância através de requisições **GET** e **PUT**, além de enviar dados por **SSE** (Server-Sent Events).
+Esta documentação descreve os métodos HTTP disponíveis na classe `service_http_server_sensor_distance`, responsável por iniciar um servidor HTTP para gerenciar sensores de distância através de requisições **GET** e **PUT**.
 
 ## Estrutura de Dados `reqData`
 
@@ -33,7 +33,7 @@ Este endpoint fornece as distancias.
 
 #### Exemplo de uso:
 
-```bash
+
 curl -N http://<ESP32_IP>/getDistance
 
 resposta esperada
@@ -54,7 +54,7 @@ Retorna uma lista em formato JSON com as informações dos sensores, incluindo c
 
 #### Exemplo de uso:
 
-```bash
+
 curl http://<ESP32_IP>/sensor
 
 
@@ -91,7 +91,7 @@ Este endpoint permite atualizar as distâncias mínimas e máximas de um sensor 
 
 #### Exemplo de uso:
 
-```bash
+
 curl -X PUT "http://<ESP32_IP>/update_sensor?sensor=0&stage=1&min_distance=15&max_distance=95"
 
 
@@ -109,7 +109,7 @@ Atualiza o intervalo de LEDs associados a um sensor específico.
 
 #### Exemplo de uso:
 
-```bash
+
 curl -X PUT "http://<ESP32_IP>/update_rstrip?sensor=1&stage=2&start_led=5&end_led=10"
 
 
@@ -125,9 +125,7 @@ Permite ajustar a cor dos LEDs RGB conectados ao sensor.
 
 #### Exemplo de uso:
 
-```bash
 curl -X PUT "http://<ESP32_IP>/update_CStrip?red=255&green=100&blue=150"
-
 
 
 ## 6. GET `/getPage` - Página HTML de Configuração
@@ -136,7 +134,7 @@ Retorna a página HTML para configuração do sistema.
 
 ### Exemplo de uso:
 
-```bash
+
 curl -X GET "http://<ESP32_IP>/getPage"
 
 ## 7. GET `/getSaveConfig` - Salvar Configuração Atual
@@ -145,7 +143,7 @@ Salva a configuração atual na memória flash do ESP32.
 
 ### Exemplo de uso:
 
-```bash
+
 curl -X GET "http://<ESP32_IP>/getSaveConfig"
 
 ## 3. GET `/getLoadConfig` - Carregar Configuração Anterior
@@ -154,5 +152,5 @@ Carrega a configuração anterior da memória flash do ESP32.
 
 ### Exemplo de uso:
 
-```bash
+
 curl -X GET "http://<ESP32_IP>/getLoadConfig"
